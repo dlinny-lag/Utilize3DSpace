@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <title>Test 3D space utilization</title>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.182.0/examples/jsm/",
+                "main": "./index.js"
+            }
+        }
+    </script>
+    <script>
+        var globalCount = 0
+        function clickDecrement(){
+            globalCount--;
+            if (globalCount < 0) {
+                globalCount = 0
+            }
+            document.getElementById("count-id").innerText = globalCount.toString();
+            main.SetCount(globalCount)
+        }
+        function clickIncrement(){
+            globalCount++;
+            document.getElementById("count-id").innerText = globalCount.toString();
+            main.SetCount(globalCount)
+        }
+    </script>
+    <script>
+        function OnLoad() {
+            import("main").then( (main) => {window.main = main; main.Init3D("root3D", 1, 5)})
+        }
+    </script>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+        .box {
+            display: flex;
+            flex-flow: column;
+            height: 100%;
+        }
+        .box .row {
+            border: 1px dotted grey;
+        }
+        .box .row.header {
+            flex: 0 1 auto;
+        }
+        .box .row.content {
+            flex: 1 1 auto;
+        }                   
+    </style>
+    <body onload="OnLoad()">
+        <div class="box">
+        <div class="row header">
+            <div>
+                <button onclick="clickDecrement()">-</button>
+                <span id="count-id">0</span>
+                <button onclick="clickIncrement()">+</button>
+            </div>
+            <div>---------------------</div>
+        </div>
+        <div id="root3D" class="row content"></div>
+    </div>
+</body>
+</html>
