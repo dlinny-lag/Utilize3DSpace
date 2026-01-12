@@ -1,5 +1,5 @@
 # Utilize 3D Space
-A sample how to place 3D objects around some center
+A sample how to evenly place 3D objects around some center
 
 # How to run
 ```

@@ -1,11 +1,11 @@
 {
-  "name": "3d-distribution",
+  "name": "3D space utilization",
   "version": "1.0.0",
   "description": "",
-  "license": "ISC",
-  "author": "",
+  "license": "MIT",
+  "author": "Dlinny_Lag",
   "type": "commonjs",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
     "dev": "serve -p 8000"
   },
